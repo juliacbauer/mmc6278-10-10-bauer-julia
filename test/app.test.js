@@ -79,8 +79,8 @@ describe('Server Routes', () => {
         .expect(200)
       expect(pokeStub.calledWith('banana'))
       const { window: { document } } = new JSDOM(res.text)
-      const imgEl = document.querySelector('[data-test-id="pokemon-name"]')
-      expect(imgEl).to.include(POKEMON_DATA.name)
+      const imageEl = document.querySelector('[data-test-id="pokemon-name"]')
+      expect(imageEl.textContent).to.include(POKEMON_DATA.name)
     })
     it('/pokemon?name=pokemonName should render pokemon types', async () => {
       //Render types
